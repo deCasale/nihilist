@@ -1,0 +1,11 @@
+<div id="content">
+	<h2 id="comic-title"><%= @comic.title %></h2>
+	<div id="comic">
+		<% if @comic.comic_picture.exists? %>
+			<%= image_tag @comic.comic_picture.url %>
+		<% end %>
+	</div>
+	
+	<%= link_to 'Back', admin_comics_path %>
+	
+</div>

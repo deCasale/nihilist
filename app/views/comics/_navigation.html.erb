@@ -1,0 +1,25 @@
+<div id="comic-navigation">
+	<ul>
+		<li>
+			<% if Comic.any? %>
+				<%= link_to "<< First", :action => 'first' %>
+			<% else %>
+				<%= link_to "<< First", "javascript:void(0);", :class => "disabled"%>
+			<% end %>
+		</li>
+		|
+		<li><a class="disabled" href="javascript:void(0);">< Previous</a></li>
+		|
+		<li><a class="disabled" href="javascript:void(0);">∞ Random ∞</a></li>
+		|
+		<li><a class="disabled" href="javascript:void(0);">Next ></a></li>
+		|
+		<li>
+			<% if Comic.any? %>
+				<%= link_to "Last >>", :action => 'last' %>
+			<% else %>
+				<%= link_to "Last >>", "javascript:void(0);", :class => "disabled"%>
+			<% end %>
+		</li>
+	</ul>
+</div>

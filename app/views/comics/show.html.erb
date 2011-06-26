@@ -1,0 +1,13 @@
+<%= render 'navigation' %>
+<div id="content">
+	<% if @comic %>
+	<h2 id="comic-title"><%= @comic.title %></h2>
+	<div id="comic">
+		<% if @comic.comic_picture.exists? %>
+			<%= image_tag @comic.comic_picture.url %>
+		<% end %>
+	</div>
+	<% else %>
+	<h2 id="comic-title">Nothing here...</h2>
+	<% end %>
+</div>

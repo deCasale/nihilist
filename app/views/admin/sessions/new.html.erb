@@ -1,0 +1,16 @@
+<div id="login-box">
+	<h2>Login or die!</h2>
+	<% form_tag admin_sessions_path do %>
+	<div>
+		<%= label_tag :email %>
+		<%= text_field_tag :email %>
+	</div>
+	<div>
+		<%= label_tag :password %>
+		<%= password_field_tag :password %>
+	</div>
+	<p class="button">
+		<%= submit_tag "Try it!"%>
+	</p>
+	<% end %>
+</div>

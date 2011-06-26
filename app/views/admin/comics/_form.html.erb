@@ -1,0 +1,29 @@
+<% form_for [:admin, @comic], :html => {:multipart => :true} do |f| %>
+<% if @comic.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@comic.errors.count, "error") %> prohibited this comic from being saved:</h2>
+
+	<ul>
+		<% @comic.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="field">
+	<%= f.label :title %><br />
+	<%= f.text_field :title %>
+</div>
+<div class="field">
+	<%= f.label :image_url %><br />
+	<%= f.text_field :image_url %>
+</div>
+<div class="field">
+	<%= f.label :comic_picture %><br />
+	<%= f.file_field :comic_picture %>
+</div>
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %>
