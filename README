@@ -1,3 +1,13 @@
-Nihilist webcomic
+The Nihilist 
 
 Single purpose webcomic CMS written in Ruby on Rails.
+
+Setup:
+rake db:setup
+
+Default admin user:
+email: admin@thenihilist.cz
+password: lopata
+
+Administrations interface is at /admin
+
