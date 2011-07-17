@@ -95,6 +95,7 @@ h1 {
 	text-align:center;
 	border: 1px solid;
 	border-top: 0;
+	background-image: url(../images/notice-shadow.png);
 }
 
 #flash-message.flash-notice {
