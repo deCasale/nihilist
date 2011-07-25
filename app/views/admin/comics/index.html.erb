@@ -1,20 +1,12 @@
 <div id="content">
-	<h2>All Comics</h2>
-	<%= link_to "New comic", new_admin_comic_url %>
+	<h2 class="left">All Comics</h2>
+	<%= link_to "New comic", new_admin_comic_url, :class => "button right" %>
+	<div class="clear"></div>
 	<% if @comics.any? %>
-	<table id="comics-list">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Title</th>
-				<th>&nbsp</th>
-				<th>&nbsp</th>
-			</tr>
-		</thead>
-		<tfoot/>
+	<table class="comics-list">
 		<tbody>
 			<% @comics.each do |c| %>
-				<tr>
+				<tr class="<%= cycle("even", "odd") %>">
 					<td><%= c.id %></td>
 					<td><%= link_to c.title, admin_comic_path(c)  %></td>
 					<td><%= link_to "Edit", edit_admin_comic_path(c) %></td>

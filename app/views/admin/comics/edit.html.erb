@@ -1,8 +1,11 @@
 <div id="content">
-	<h2>Editing comic</h2>
+	<h2><%= @comic.title %></h2>
+	
+	<div class="links">
+		<%= link_to 'View all comics', admin_comics_path %> |
+		<%= link_to 'Preview', @comic %>
+	</div>
 
 	<%= render 'form' %>
 	
-	<%= link_to 'Show', @comic %> |
-	<%= link_to 'Back', admin_comics_path %>
 </div>

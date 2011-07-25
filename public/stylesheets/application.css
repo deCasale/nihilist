@@ -17,6 +17,17 @@ a, h2 {
 	margin: 0 auto;
 }
 
+.left {
+	float:left;
+}
+.right {
+	float:right;
+	margin-top:12px;
+}
+.clear {
+	clear:both;
+}
+
 /*Header*/
 #header, #comic-navigation, #content {
 	background-color: #ddd;
@@ -67,7 +78,7 @@ h1 {
 	width: 300px;
 	font-size: 20px;
 }
-#login-box input[type=submit] {
+#login-box input[type=submit], div.actions input, .button {
 	width: 100px;
 	background-color: #224;
 	display: inline-block;
@@ -177,3 +188,44 @@ h1 {
 	margin:	0;
 	padding: 0;
 }
+
+/*Comic form*/
+
+div.links {
+	margin-top:-10px;
+	margin-bottom:15px;
+	font-size:11px;
+}
+div.field {
+	margin-bottom: 10px;
+}
+
+/*Comic table*/
+table.comics-list {
+  width: 100%;
+}
+table.comics-list td, 
+table.comics-list th  {
+  padding: 5px 5px 5px 9px;
+  vertical-align: top;
+}
+table.comics-list tbody tr > td,
+table.comics-list tfoot tr > td  {
+  border-left: 2px solid #fff;
+}
+table.comics-list tbody tr > td:first-child,
+table.comics-list tfoot tr > td:first-child  {
+  border-left: 0;
+}
+
+table.comics-list tbody tr.even {
+  background: #F0F4F8;
+}
+table.comics-list tbody tr.odd {
+  background: #F6FBFF;
+}
+table.comics-list tbody td {
+  font-size: 100%;
+  border-bottom: 1px solid #CED9E7;
+}
+

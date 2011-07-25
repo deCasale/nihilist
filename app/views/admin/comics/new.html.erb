@@ -1,7 +1,9 @@
 <div id="content">
 	<h2>New comic</h2>
-
+	
+	<div class="links">
+		<%= link_to 'View all comics', admin_comics_path %>
+	</div>
+	
 	<%= render 'form' %>
-
-	<%= link_to 'Back', comics_path %>
 </div>
