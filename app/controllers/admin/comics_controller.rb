@@ -44,8 +44,8 @@ class Admin::ComicsController < ApplicationController
 
   private
   def authenticate_user
-    # if !current_user
-      # redirect_to new_admin_session_url
-    # end
+    if !current_user
+      redirect_to admin_login_path
+    end
   end
 end

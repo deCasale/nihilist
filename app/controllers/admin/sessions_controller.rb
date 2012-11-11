@@ -5,7 +5,7 @@ class Admin::SessionsController < ApplicationController
   end
   
   def create
-    user = User.authenticate(params[:email], params[:password])
+    user = Admin::User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
       redirect_to admin_comics_url, :notice => "Logged in!"

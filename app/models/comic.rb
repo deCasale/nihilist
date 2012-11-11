@@ -1,5 +1,5 @@
-class Comic# < ActiveRecord::Base
-  include Mongoid::Document	
+class Comic
+  include Mongoid::Document
   include Mongoid::Paperclip
 
   field :title
