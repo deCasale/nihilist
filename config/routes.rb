@@ -10,9 +10,7 @@ Nihilist::Application.routes.draw do
   #administration interface
   namespace "admin" do
     resources :users
-    resources :sessions
     resources :comics
-    root :to => "sessions#new"
     get "logout" => "sessions#destroy", :as => :logout
   end
   

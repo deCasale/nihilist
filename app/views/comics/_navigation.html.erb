@@ -1,7 +1,7 @@
 <div id="comic-navigation">
 	<ul>
 		<li>
-			<% if Comic.any? %>
+			<% if Comic.count > 0 %>
 				<%= link_to "<< First", :action => 'first' %>
 			<% else %>
 				<%= link_to "<< First", "javascript:void(0);", :class => "disabled"%>
@@ -15,7 +15,7 @@
 		<li><a class="disabled" href="javascript:void(0);">Next ></a></li>
 		|
 		<li>
-			<% if Comic.any? %>
+			<% if Comic.count > 0 %>
 				<%= link_to "Last >>", :action => 'last' %>
 			<% else %>
 				<%= link_to "Last >>", "javascript:void(0);", :class => "disabled"%>
