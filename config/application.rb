@@ -11,6 +11,9 @@ require 'sprockets/railtie'
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Nihilist
+
+  VERSION = '0.0.1'
+
   class Application < Rails::Application
     config.encoding = "utf-8"
     config.filter_parameters += [:password]
