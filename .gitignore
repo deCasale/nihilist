@@ -2,5 +2,5 @@
 db/*.sqlite3
 log/*.log
 tmp/
-public/system/comic_pictures/*
+public/system/comics/comic_pictures/*
 *.DS_Store
