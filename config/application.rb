@@ -12,7 +12,7 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Nihilist
 
-  VERSION = '0.0.1'
+  VERSION = '0.0.2'
 
   class Application < Rails::Application
     config.encoding = "utf-8"
