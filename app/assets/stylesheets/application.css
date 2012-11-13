@@ -3,7 +3,7 @@
 body, html {
 	margin: 0;
 	padding: 0;
-	background-image: url(../images/bgpattern.gif);
+	background-image: url(bgpattern.gif);
 	font: normal 0.9em/1.4em Trebuchet MS,"Arial CE", Arial, Helvetica, sans-serif;
 	color: #3E3E3E;
 }
@@ -78,22 +78,41 @@ h1 {
 	width: 300px;
 	font-size: 20px;
 }
-#login-box input[type=submit], div.actions input, .button {
+#login-box input[type=submit], div.actions input, a.button {
 	width: 100px;
-	background-color: #224;
-	display: inline-block;
-	padding: 5px 10px 6px;
-	color: #fff;
-	text-decoration: none;
-	font-weight: bold;
-	line-height: 1;
+	text-align: center;
 	-moz-border-radius: 5px;
+	-moz-box-shadow: #222 0px 0px 10px;
+	-moz-transition: background 0.5s ease;
+	-ms-transition: background 0.5s ease;
+	-o-transition: background 0.5s ease;
 	-webkit-border-radius: 5px;
-	-moz-box-shadow: 0 1px 3px #999;
-	-webkit-box-shadow: 0 1px 3px #999;
-	text-shadow: 0 -1px 1px #222;
-	border-bottom: 1px solid #222;
-	cursor: pointer;
+	-webkit-box-shadow: #6E7849 0 0 10px;
+	-webkit-transition: background 0.5s ease;
+	background-color: #50509f;
+	background-image: -moz-linear-gradient(90deg, #224, #50509f);
+	background-image: -ms-linear-gradient(90deg, #224, #50509f);
+	background-image: -o-linear-gradient(90deg, #224, #50509f);
+	background-image: -webkit-linear-gradient(90deg, #224, #50509f);
+	background-image: linear-gradient(90deg, #224, #50509f);
+	border-radius: 5px;
+	border: 1px solid #222;
+	box-shadow: #222 0px 0px 10px;
+	color: #ffffff;
+	display: inline-block;
+	margin: auto;
+	padding: 5px;
+	text-decoration: none;
+	text-shadow: #000000 5px 5px 15px;
+	transition: background 0.5s ease;
+}
+#login-box input[type=submit]:hover, div.actions input:hover, a.button:hover {
+	background-color: #6c6cb2;
+	background-image: -moz-linear-gradient(90deg, #224, #6c6cb2);
+	background-image: -ms-linear-gradient(90deg, #224, #6c6cb2);
+	background-image: -o-linear-gradient(90deg, #224, #6c6cb2);
+	background-image: -webkit-linear-gradient(90deg, #224, #6c6cb2);
+	background-image: linear-gradient(90deg, #224, #6c6cb2);
 }
 
 /*Flash messages*/
@@ -106,7 +125,7 @@ h1 {
 	text-align:center;
 	border: 1px solid;
 	border-top: 0;
-	background-image: url(../images/notice-shadow.png);
+	background-image: url(notice-shadow.png);
 }
 
 #flash-message.flash-notice {
