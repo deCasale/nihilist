@@ -4,6 +4,7 @@ Nihilist::Application.routes.draw do
   
   #comics
   resources :comics
+  get "comics/:id/image" => "comics#image", :as => :comic_image
   get "last" => "comics#last"
   get "first" => "comics#first"
   

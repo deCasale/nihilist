@@ -17,4 +17,13 @@ class ComicsController < ApplicationController
     @comic = Comic.first
     render "show"
   end
+
+  def image
+    @comic = Comic.find(params[:id])
+    if @comic.image
+      send_data @comic.image.data, :disposition => 'inline', :type => @comic.image.content_type
+    else
+      render_404
+    end
+  end
 end

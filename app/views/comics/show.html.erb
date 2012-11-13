@@ -3,8 +3,8 @@
 	<% if @comic %>
 	<h2 id="comic-title"><%= @comic.title %></h2>
 	<div id="comic">
-		<% if @comic.comic_picture.exists? %>
-			<%= image_tag @comic.comic_picture.url %>
+		<% if @comic.image %>
+			<%= image_tag comic_image_path(@comic) %>
 		<% end %>
 	</div>
 	<% else %>
