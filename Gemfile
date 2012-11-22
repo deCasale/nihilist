@@ -9,3 +9,9 @@ gem 'mongoid', '~> 3.0.0'
 gem 'mongoid-grid_fs'
 gem 'bson_ext'
 gem 'bcrypt-ruby', :require => 'bcrypt'
+
+group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'database_cleaner'
+end
