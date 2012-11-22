@@ -11,16 +11,12 @@ When /^I log in with incorrect credentials$/ do
 end
 
 Then /^I should be notified that I am logged in$/ do
-  assert page.has_content? 'Logged in'
+  assert has_content? 'Logged in'
 end
 
 Then /^I should (not )?be logged in$/ do |negation|
   assert negation ? !logged_in? : logged_in?
 end
-
-# Then /^I should be logged in$/ do
-#   assert logged_in?
-# end
 
 def login(email, password)
   visit('/admin')

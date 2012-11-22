@@ -16,7 +16,11 @@ class Comic
   end
 
   def image
-    @image || Mongoid::GridFs.get(self.image_id)
+    if @image
+      @image
+    elsif self.image_id
+      Mongoid::GridFs.get(self.image_id)
+    end
   end
 
 end
