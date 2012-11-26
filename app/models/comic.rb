@@ -28,7 +28,10 @@ class Comic
   end
 
   def generate_slug
-    self.slug = title.to_ascii.downcase.gsub(/[^a-z0-9 ]/, ' ').strip.gsub(/[ ]+/, '-')
+    slug = title.to_ascii.downcase.gsub(/[^a-z0-9 ]/, ' ').strip.gsub(/[ ]+/, '-')
+    same_slug_count = Comic.where(slug: /^#{Regexp.escape(slug)}(?:-(\d+))?$/).count
+    slug << "-#{same_slug_count + 1}" if same_slug_count > 0
+    self.slug = slug
   end
 
   def to_param

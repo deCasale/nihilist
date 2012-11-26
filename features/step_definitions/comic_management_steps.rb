@@ -50,9 +50,17 @@ Then /^I should be able to access the comic using the slug$/ do
   assert comic_path(Comic.last) =~ /#{Regexp::escape(Comic.last.slug)}/
 end
 
+When /^I upload some comics with same titles$/ do
+  3.times{upload_comic(:title => 'Same title')}
+end
+
+Then /^all comics should have uniqe slugs$/ do
+  assert Comic.count == Comic.all.collect(&:slug).uniq.size
+end
+
 def upload_comic(options={})
   visit(new_admin_comic_path)
-  fill_in('Title', :with => "I am comic number #{Comic.count + 1}")
+  fill_in('Title', :with => options[:title] || "I am comic number #{Comic.count + 1}")
   unless options[:no_image]
     attach_file('Image', File.expand_path('features/test_files/nighthawk.jpeg'))
   end
