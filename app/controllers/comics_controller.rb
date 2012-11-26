@@ -8,7 +8,7 @@ class ComicsController < ApplicationController
     if params[:id].blank?
       @comic = Comic.last
     else
-      @comic = Comic.find(params[:id])
+      @comic = Comic.find_by_slug_or_id(params[:id])
     end
   end
 

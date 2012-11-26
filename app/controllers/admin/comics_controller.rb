@@ -53,7 +53,7 @@ class Admin::ComicsController < ApplicationController
   end
 
   def find_comic
-    @comic = Comic.find(params[:id])
+    @comic = Comic.find_by_slug_or_id(params[:id])
   end
 
 end

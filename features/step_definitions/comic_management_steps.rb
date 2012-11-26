@@ -42,6 +42,14 @@ Then /^it should not be in the list of comics$/ do
   assert page.all('td', :text => @deleted_comic_title).empty?
 end
 
+Then /^the comic should have slug$/ do
+  assert !Comic.last.slug.blank?
+end
+
+Then /^I should be able to access the comic using the slug$/ do
+  assert comic_path(Comic.last) =~ /#{Regexp::escape(Comic.last.slug)}/
+end
+
 def upload_comic(options={})
   visit(new_admin_comic_path)
   fill_in('Title', :with => "I am comic number #{Comic.count + 1}")

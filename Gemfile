@@ -9,6 +9,7 @@ gem 'mongoid', '~> 3.0.0'
 gem 'mongoid-grid_fs'
 gem 'bson_ext'
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'unidecode'
 
 group :test do
   gem 'cucumber-rails', :require => false

@@ -2,17 +2,21 @@ class Comic
   include Mongoid::Document
 
   field :title
+  field :slug
+  index({ :slug => 1 }, { :unique => true })
   field :image_id
 
   attr_accessor :image
 
-  before_save :store_image
+  before_save :store_image, :generate_slug
+
+  validates_presence_of :title
 
   def store_image
   	if @image
       stored_image = Mongoid::GridFs.put(@image)
       self.image_id = stored_image.id
-  	end
+    end
   end
 
   def image
@@ -21,6 +25,14 @@ class Comic
     elsif self.image_id
       Mongoid::GridFs.get(self.image_id)
     end
+  end
+
+  def generate_slug
+    self.slug = title.to_ascii.downcase.gsub(/[^a-z0-9 ]/, ' ').strip.gsub(/[ ]+/, '-')
+  end
+
+  def to_param
+    slug.blank? ? id : slug
   end
 
   def self.random
@@ -35,6 +47,22 @@ class Comic
 
   def self.next(comic)
     where(:id.gt => comic.id).first
+  end
+
+  def self.find_by_slug(slug)
+    where(:slug => slug).first
+  end
+
+  def self.find_by_slug!(slug)
+    find_by_slug(slug) || raise(Mongoid::Errors::DocumentNotFound.new(self, { :slug => slug }))
+  end
+
+  def self.find_by_slug_or_id(slug_or_id)
+    find_by_slug(slug_or_id) || where(:_id => slug_or_id).first
+  end
+
+  def self.find_by_slug_or_id!(slug_or_id)
+    find_by_slug(slug_or_id) || where(:_id => slug_or_id).first || raise(Mongoid::Errors::DocumentNotFound.new(self, { :slug => slug_or_id }))
   end
 
 end
