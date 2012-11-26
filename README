@@ -1,13 +1,12 @@
 The Nihilist 
 
-Single purpose webcomic CMS written in Ruby on Rails.
+Single purpose webcomic CMS written in Ruby on Rails that uses Mongoid.
 
-Setup:
-rake db:setup
+You can create an admin user in console:
 
-Default admin user:
-email: admin@thenihilist.cz
-password: lopata
+```ruby
+Admin::User.create(login: 'admin', email: 'admin@example.com', password: 'nbusr123')
+```
 
-Administrations interface is at /admin
+Admin interface is at /admin
 
