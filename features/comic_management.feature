@@ -13,3 +13,14 @@ Feature: Comic management
     Then the comic should be saved
     And I should be redirected to the comic as admin
     And I should see the image
+
+  Scenario: List comics
+    Given I am an admin user
+    And I have some comics
+    Then I should see them in the list
+
+  Scenario: Remove comic
+    Given I am an admin user
+    And I have some comics
+    When I remove the comic
+    Then it should not be in the list of comics

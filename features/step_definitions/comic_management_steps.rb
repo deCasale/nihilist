@@ -23,6 +23,25 @@ Then /^I should (not )?see the image$/ do |negation|
   assert negation ? !has_css?('#comic > img') : has_css?('#comic > img')
 end
 
+Given /^I have some comics$/ do
+  5.times{upload_comic}
+end
+
+Then /^I should see them in the list$/ do
+  visit(admin_comics_path)
+  assert all('table.comics-list tbody tr').size == 5
+end
+
+When /^I remove the comic$/ do
+  @deleted_comic_title = Comic.first.title
+  visit(admin_comics_path)
+  find(:xpath, "//tr[td[contains(.,'#{@deleted_comic_title}')]]/td/a", :text => 'Delete').click
+end
+
+Then /^it should not be in the list of comics$/ do
+  assert page.all('td', :text => @deleted_comic_title).empty?
+end
+
 def upload_comic(options={})
   visit(new_admin_comic_path)
   fill_in('Title', :with => "I am comic number #{Comic.count + 1}")

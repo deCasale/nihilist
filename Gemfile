@@ -12,6 +12,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 
 group :test do
   gem 'cucumber-rails', :require => false
+  gem 'poltergeist'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'database_cleaner'
   gem 'pry'
