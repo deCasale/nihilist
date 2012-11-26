@@ -24,7 +24,7 @@ Then /^I should (not )?see the image$/ do |negation|
 end
 
 Given /^I have some comics$/ do
-  5.times{upload_comic}
+  5.times{FactoryGirl.create(:comic)}
 end
 
 Then /^I should see them in the list$/ do

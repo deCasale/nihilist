@@ -4,4 +4,8 @@ FactoryGirl.define do
     email 'admin@nihilist.cz'
     password 'lopata123'
   end
+
+  factory :comic do
+  	sequence(:title){|n| "I am comic number #{Comic.count + 1}"}
+  end
 end

@@ -10,7 +10,7 @@
 					<td><%= c.id %></td>
 					<td><%= link_to c.title, admin_comic_path(c)  %></td>
 					<td><%= link_to "Edit", edit_admin_comic_path(c) %></td>
-					<td><%= link_to "Delete", admin_comic_path(c), :method => :delete, :confirm => "You sure dawg?" %></td>
+					<td><%= link_to "Delete", admin_comic_path(c), :method => :delete, :confirm => "Sure?" %></td>
 				</tr>
 			<% end %>
 		</tbody>

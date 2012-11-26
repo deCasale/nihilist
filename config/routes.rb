@@ -1,12 +1,10 @@
 Nihilist::Application.routes.draw do
   
-  root :to => "comics#last"
+  root :to => "comics#show"
   
   #comics
   resources :comics
   get "comics/:id/image" => "comics#image", :as => :comic_image
-  get "last" => "comics#last"
-  get "first" => "comics#first"
   
   #administration interface
   namespace "admin" do

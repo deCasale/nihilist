@@ -2,23 +2,41 @@
 	<ul>
 		<li>
 			<% if Comic.count > 0 %>
-				<%= link_to "<< First", :action => 'first' %>
+				<%= link_to "<< First", comic_path(Comic.first), :class => "first" %>
 			<% else %>
-				<%= link_to "<< First", "javascript:void(0);", :class => "disabled"%>
+				<%= link_to "<< First", "javascript:void(0);", :class => "first disabled"%>
 			<% end %>
 		</li>
 		|
-		<li><a class="disabled" href="javascript:void(0);">< Previous</a></li>
+		<li>
+			<% if @comic && (prev = Comic.previous(@comic)) %>
+				<%= link_to "< Previous", comic_path(prev), :class => "previous" %>
+			<% else %>
+				<%= link_to "< Previous", "javascript:void(0);", :class => "previous disabled"%>
+			<% end %>
+		</li>
 		|
-		<li><a class="disabled" href="javascript:void(0);">∞ Random ∞</a></li>
+		<li>
+			<% if Comic.count > 1 %>
+				<%= link_to "∞ Random ∞", comic_path(Comic.random), :class => "random" %>
+			<% else %>
+				<%= link_to "∞ Random ∞", "javascript:void(0);", :class => "random disabled"%>
+			<% end %>
+		</li>
 		|
-		<li><a class="disabled" href="javascript:void(0);">Next ></a></li>
+		<li>
+			<% if @comic && (nxt = Comic.next(@comic)) %>
+				<%= link_to "Next >", comic_path(nxt), :class => "next" %>
+			<% else %>
+				<%= link_to "Next >", "javascript:void(0);", :class => "next disabled"%>
+			<% end %>
+		</li>
 		|
 		<li>
 			<% if Comic.count > 0 %>
-				<%= link_to "Last >>", :action => 'last' %>
+				<%= link_to "Last >>", comic_path(Comic.last), :class => "last" %>
 			<% else %>
-				<%= link_to "Last >>", "javascript:void(0);", :class => "disabled"%>
+				<%= link_to "Last >>", "javascript:void(0);", :class => "last disabled"%>
 			<% end %>
 		</li>
 	</ul>
