@@ -1,4 +1,4 @@
-The Nihilist 
+#The Nihilist 
 
 Single purpose webcomic CMS written in Ruby on Rails that uses Mongoid.
 
