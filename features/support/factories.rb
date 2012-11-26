@@ -7,5 +7,6 @@ FactoryGirl.define do
 
   factory :comic do
   	sequence(:title){|n| "I am comic number #{Comic.count + 1}"}
+    image File.open('features/test_files/nighthawk.jpeg')
   end
 end

@@ -77,3 +77,16 @@ Then /^I should be able to get to the last comic usign the next button$/ do
     click_link 'Next'
   end
 end
+
+Given /^I have one comic with image$/ do
+  @comic = FactoryGirl.create(:comic)
+end
+
+Given /^I go to the comic image url$/ do
+  visit comic_image_path(@comic)
+end
+
+Then /^I should get an image$/ do
+  assert page.status_code == 200
+  assert page.response_headers["Content-Type"] =~ /image/
+end

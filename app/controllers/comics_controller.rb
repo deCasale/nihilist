@@ -13,7 +13,7 @@ class ComicsController < ApplicationController
   end
 
   def image
-    @comic = Comic.find(params[:id])
+    @comic = Comic.find_by_slug_or_id(params[:id])
     if @comic.image
       send_data @comic.image.data, :disposition => 'inline', :type => @comic.image.content_type
     else

@@ -38,3 +38,8 @@ Feature: Comic browsing
     Given I have some comics
     And I visit the first comic
     Then I should be able to get to the last comic usign the next button
+
+  Scenario: Display comic image
+    Given I have one comic with image
+    And I go to the comic image url
+    Then I should get an image
